@@ -1,30 +1,216 @@
+:root {
+  --bg-color: #0F0C10;
+
+  --card-color: #13121A;
+  --card-stroke: #211E2B;
+  --card-date-color: #D98B26;
+  --card-interaction-color: #8A509E;
+
+  --positive-color: #39A860;
+}
+
+* {
+  font-family: "IBM Plex Mono", monospace;
+}
+
 html {
+  background-color: var(--bg-color);
+
+  color: white;
+
+  height: 100%;
+}
+
+body {
+  padding: 32px;
+
+  height: calc(100% - 72px);
+  max-height: calc(100% - 72px);
+}
+
+#nav-bar {
   display: flex;
-  justify-content: center;
 
-  background-color: black;
-  font-size: 24px;
+  flex-direction: row;
+  justify-content: space-between;
 
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/background.webp'); */
-  /* background-attachment: fixed; */
-  /* background-position: center; */
-  /* background-size: cover; */
+  padding-bottom: 40px;
 
+  border-bottom: 1px solid #1E1C24;
+
+  font-size: 16pt;
+}
+
+#nav-button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  color: grey;
+
+  text-decoration: underline;
+}
+
+#nav-button-row span.nav-button-selected {
+  color: white;
+}
+
+#url-row-prefix {
+  color: grey;
+}
+
+#command-column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  font-size: 16pt;
+}
+
+#fake-command {
+  color: grey;
+}
+
+#card-viewer {
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+#card-root {
+  display: flex;
+  flex-direction: column;
+
+
+  gap: 14px;
+
+  padding: 16px;
+
+  border-radius: 4px;
+  border: 1px solid var(--card-stroke);
+
+  color: white;
+  background-color: var(--card-color);
+
+  font-size: 16pt;
+}
+
+#viewer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+  max-width: 756;
+
+  font-size: 16pt;
+}
+
+#viewer::before {
+  max-width: 512px;
+}
+
+.card-date-span {
+  color: var(--card-date-color);
+
+  font-size: 13pt;
+}
+
+.card-title-row {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
+
+.card-title-span {
+  font-size: 20pt;
+
+  font-weight: 600;
+}
+
+.card-content-span {
+  color: grey;
+}
+
+.card-interaction {
+  color: var(--card-interaction-color);
+  font-weight: 600;
+}
+
+.card-status {
+  padding: 8px;
+
+  border: 1px solid white;
+  border-radius: 4px;
+
+  font-weight: 600;
+}
+
+.card-status-active {
+  background-color: rgb(from var(--positive-color) r g b / 0.13);
+}
+
+.gapped-column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 48px;
+
+  height: 100%;
+}
+
+.hint-text {
+  font-size: 12pt;
+  color: grey;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+
+  font-size: 12pt;
+  color: grey;
 }
 
 @keyframes dynamicCrtFlicker {
+
   /* Steady screen */
-  0%, 18%, 22%, 55%, 57%, 88%, 90%, 100% {
+  0%,
+  18%,
+  22%,
+  55%,
+  57%,
+  88%,
+  90%,
+  100% {
     opacity: 1;
   }
-  
+
   /* Quick jitter & dimming cluster 1 */
   19% {
     opacity: 0.75;
   }
+
   20% {
     opacity: 0.95;
   }
+
   21% {
     opacity: 0.4;
   }
@@ -39,15 +225,6 @@ html {
 }
 
 body {
-  padding: 32px;
-  border-radius: 16px;
-  color: white;
-  background-color: #0f0f11;
-  font-family: "VT323", monospace;
-
-  max-width: 512px; 
-  min-width: 512px;
-
   animation: dynamicCrtFlicker 20s infinite;
   animation-timing-function: steps(1);
 }
@@ -62,11 +239,7 @@ html::after {
   pointer-events: none;
   z-index: 9999;
 
-  /* Your overlay styling (e.g., scanlines or dark vignette) */
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.25) 50%
-  );
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
   background-size: 100% 4px;
 }
 
@@ -76,7 +249,7 @@ shake-text {
   white-space: pre;
   position: relative;
 
-  text-shadow: 
+  text-shadow:
     -2px 0 0 rgba(255, 0, 80, 0.75),
     2px 0 0 rgba(0, 255, 230, 0.75);
 
@@ -89,7 +262,7 @@ abberated-text span {
   white-space: pre;
   position: relative;
 
-  text-shadow: 
+  text-shadow:
     -2px 0 0 rgba(255, 0, 80, 0.75),
     2px 0 0 rgba(0, 255, 230, 0.75);
 
@@ -97,21 +270,24 @@ abberated-text span {
 }
 
 garbled-text {
-  text-shadow: 
+  text-shadow:
     -2px 0 0 rgba(255, 0, 80, 0.75),
     2px 0 0 rgba(0, 255, 230, 0.75);
 
 }
 
 @keyframes glitch-flicker {
-  0%, 100% {
-    text-shadow: 
+
+  0%,
+  100% {
+    text-shadow:
       -2px 0 0 rgba(255, 0, 80, 0.75),
-        2px 0 0 rgba(0, 255, 230, 0.75);
+      2px 0 0 rgba(0, 255, 230, 0.75);
   }
+
   50% {
-    text-shadow: 
+    text-shadow:
       -3px -1px 0 rgba(255, 0, 80, 0.8),
-        3px 1px 0 rgba(0, 255, 230, 0.8);
+      3px 1px 0 rgba(0, 255, 230, 0.8);
   }
 }
