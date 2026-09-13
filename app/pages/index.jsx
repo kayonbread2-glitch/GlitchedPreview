@@ -332,9 +332,7 @@ export default class PreviewPage extends React.Component {
         <Head>
           <title>{(pageTitle || '').replace(/\$\{name\}/, name)}</title>
           <link rel="shortcut icon" type="image/ico" href="/_static/favicon.ico" />
-
-          <link rel="stylesheet" href="/_static/custom_widgets/main.css"
-
+          <link rel="stylesheet" href="/_static/custom_widgets/main.css" />
           <link rel="stylesheet" href="/_static/page.css" />
           <link rel="stylesheet" href="/_static/markdown.css" />
           <link rel="stylesheet" href="/_static/highlight.css" />
