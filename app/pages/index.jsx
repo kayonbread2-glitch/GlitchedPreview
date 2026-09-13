@@ -390,6 +390,7 @@ export default class PreviewPage extends React.Component {
               </header>
             }
             <section
+              id="viewer"
               className="markdown-body"
               dangerouslySetInnerHTML={{
                 __html: content
