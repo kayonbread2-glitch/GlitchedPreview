@@ -1,0 +1,117 @@
+html {
+  display: flex;
+  justify-content: center;
+
+  background-color: black;
+  font-size: 24px;
+
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../assets/background.webp'); */
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  /* background-size: cover; */
+
+}
+
+@keyframes dynamicCrtFlicker {
+  /* Steady screen */
+  0%, 18%, 22%, 55%, 57%, 88%, 90%, 100% {
+    opacity: 1;
+  }
+  
+  /* Quick jitter & dimming cluster 1 */
+  19% {
+    opacity: 0.75;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  21% {
+    opacity: 0.4;
+  }
+
+  56% {
+    opacity: 0.3;
+  }
+
+  89% {
+    opacity: 0.85;
+  }
+}
+
+body {
+  padding: 32px;
+  border-radius: 16px;
+  color: white;
+  background-color: #0f0f11;
+  font-family: "VT323", monospace;
+
+  max-width: 512px; 
+  min-width: 512px;
+
+  animation: dynamicCrtFlicker 20s infinite;
+  animation-timing-function: steps(1);
+}
+
+html::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* Your overlay styling (e.g., scanlines or dark vignette) */
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}
+
+shake-text {
+  display: inline-block;
+  color: #FFFFFF;
+  white-space: pre;
+  position: relative;
+
+  text-shadow: 
+    -2px 0 0 rgba(255, 0, 80, 0.75),
+    2px 0 0 rgba(0, 255, 230, 0.75);
+
+  animation: glitch 2s infinite alternate;
+}
+
+abberated-text span {
+  display: inline-block;
+  color: #FFFFFF;
+  white-space: pre;
+  position: relative;
+
+  text-shadow: 
+    -2px 0 0 rgba(255, 0, 80, 0.75),
+    2px 0 0 rgba(0, 255, 230, 0.75);
+
+  animation: glitch 2s infinite alternate;
+}
+
+garbled-text {
+  text-shadow: 
+    -2px 0 0 rgba(255, 0, 80, 0.75),
+    2px 0 0 rgba(0, 255, 230, 0.75);
+
+}
+
+@keyframes glitch-flicker {
+  0%, 100% {
+    text-shadow: 
+      -2px 0 0 rgba(255, 0, 80, 0.75),
+        2px 0 0 rgba(0, 255, 230, 0.75);
+  }
+  50% {
+    text-shadow: 
+      -3px -1px 0 rgba(255, 0, 80, 0.8),
+        3px 1px 0 rgba(0, 255, 230, 0.8);
+  }
+}
