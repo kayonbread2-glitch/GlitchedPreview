@@ -333,11 +333,11 @@ export default class PreviewPage extends React.Component {
           <title>{(pageTitle || '').replace(/\$\{name\}/, name)}</title>
           <link rel="shortcut icon" type="image/ico" href="/_static/favicon.ico" />
           <link rel="stylesheet" href="/_static/custom_widgets/main.css" />
-          <link rel="stylesheet" href="/_static/page.css" />
+          {/* <link rel="stylesheet" href="/_static/page.css" /> */}
           {/* <link rel="stylesheet" href="/_static/markdown.css" /> */}
-          <link rel="stylesheet" href="/_static/highlight.css" />
-          <link rel="stylesheet" href="/_static/katex@0.15.3.css" />
-          <link rel="stylesheet" href="/_static/sequence-diagram-min.css" />
+          {/* <link rel="stylesheet" href="/_static/highlight.css" /> */}
+          {/* <link rel="stylesheet" href="/_static/katex@0.15.3.css" /> */}
+          {/* <link rel="stylesheet" href="/_static/sequence-diagram-min.css" /> */}
           <script type="text/javascript" src="/_static/custom_widgets/minified.js"></script>
           <script type="text/javascript" src="/_static/underscore-min.js"></script>
           <script type="text/javascript" src="/_static/webfont.js"></script>
